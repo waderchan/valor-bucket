@@ -49,7 +49,6 @@
             "python.exe",
             "python39"
         ],
-        "Lib\\idlelib\\idle.bat",
         [
             "Lib\\idlelib\\idle.bat",
             "idle39"
