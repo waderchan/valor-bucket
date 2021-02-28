@@ -2,46 +2,34 @@
     "homepage": "https://www.python.org/",
     "description": "A programming language that lets you work quickly and integrate systems more effectively.",
     "license": "Python-2.0",
-    "version": "3.9.1",
+    "version": "3.9.2",
     "architecture": {
         "64bit": {
-            "url": [
-                "https://www.python.org/ftp/python/3.9.1/python-3.9.1-amd64.exe#/setup.exe"
-            ],
-            "hash": [
-                "md5:b3fce2ed8bc315ad2bc49eae48a94487"
-            ]
+            "url": "https://www.python.org/ftp/python/3.9.2/python-3.9.2-amd64.exe#/py3.exe",
+            "hash": "md5:efb20aa1b648a2baddd949c142d6eb06"
         },
         "32bit": {
-            "url": [
-                "https://www.python.org/ftp/python/3.9.1/python-3.9.1.exe#/setup.exe"
-            ],
-            "hash": [
-                "md5:dde210ea04a31c27488605a9e7cd297a"
-            ]
+            "url": "https://www.python.org/ftp/python/3.9.2/python-3.9.2.exe#/py3.exe",
+            "hash": "md5:81294c31bd7e2d4470658721b2887ed5"
         }
     },
     "installer": {
-        "script": [
-            "Expand-DarkArchive \"$dir\\setup.exe\" \"$dir\\_tmp\"",
-            "@('launcher.msi', 'path.msi', 'pip.msi') | ForEach-Object {",
-            "    Remove-Item \"$dir\\_tmp\\AttachedContainer\\$_\"",
-            "}",
-            "(Get-ChildItem \"$dir\\_tmp\\AttachedContainer\\*.msi\").FullName | ForEach-Object { Expand-MsiArchive $_ \"$dir\" }",
-            "Remove-Item \"$dir\\_tmp\", \"$dir\\setup.exe\" -Force -Recurse",
-            "& \"$dir\\python.exe\" -E -s -m ensurepip -U --default-pip | Out-Null",
-            "if ($global) {",
-            "    $pathext = (env 'PATHEXT' $true) -replace ';.PYW?', ''",
-            "    env 'PATHEXT' $true \"$pathext;.PY;.PYW\"",
-            "}"
-        ]
+        "args": [
+            "/quiet",
+            "InstallAllUsers=$(@{$true=1;$false=0}[$global])",
+            "TargetDir=\"$dir\"",
+            "AssociateFiles=0",
+            "Shortcuts=0",
+            "InstallLauncherAllUsers=$(@{$true=1;$false=0}[$global])"
+        ],
+        "keep": true
     },
     "uninstaller": {
-        "script": [
-            "if ($global) {",
-            "    $pathext = (env 'PATHEXT' $true) -replace ';.PYW?', ''",
-            "    env 'PATHEXT' $true \"$pathext\"",
-            "}"
+        "file": "py3.exe",
+        "args": [
+            "/uninstall",
+            "/quiet",
+            "InstallAllUsers=0"
         ]
     },
     "bin": [
@@ -57,20 +45,20 @@
     ],
     "checkver": {
         "url": "https://www.python.org/downloads/windows/",
-        "re": "Latest Python 3 Release - Python ([\\d\\.]+)"
+        "re": "python-(3\\.9\\.[\\d.]+)-"
     },
     "autoupdate": {
         "architecture": {
             "64bit": {
-                "url": "https://www.python.org/ftp/python/$version/python-$version-amd64.exe#/setup.exe"
+                "url": "https://www.python.org/ftp/python/$version/python-$version-amd64.exe#/py3.exe"
             },
             "32bit": {
-                "url": "https://www.python.org/ftp/python/$version/python-$version.exe#/setup.exe"
+                "url": "https://www.python.org/ftp/python/$version/python-$version.exe#/py3.exe"
             }
         },
         "hash": {
             "url": "https://www.python.org/downloads/release/python-$cleanVersion/",
-            "find": "(?sm)$basename.*?$md5"
+            "find": "$basename[\\S\\s]+?([A-Fa-f\\d]{32})"
         }
     }
 }
