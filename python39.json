@@ -1,15 +1,15 @@
 {
     "homepage": "https://www.python.org/",
     "license": "Python-2.0",
-    "version": "3.9.5",
+    "version": "3.9.9",
     "architecture": {
         "64bit": {
-            "url": "https://www.python.org/ftp/python/3.9.5/python-3.9.5-amd64.exe#/py3.exe",
-            "hash": "md5:53a354a15baed952ea9519a7f4d87c3f"
+            "url": "https://www.python.org/ftp/python/3.9.9/python-3.9.9-amd64.exe#/py3.exe",
+            "hash": "md5:a09ef64c9ea2e7d9a04a2cafb833aa7b"
         },
         "32bit": {
-            "url": "https://www.python.org/ftp/python/3.9.5/python-3.9.5.exe#/py3.exe",
-            "hash": "md5:b29b19a94bbe498808e5e12c51625dd8"
+            "url": "https://www.python.org/ftp/python/3.9.9/python-3.9.9.exe#/py3.exe",
+            "hash": "md5:41566bd99961047c8332d46bd3dd90fc"
         }
     },
     "installer": {
