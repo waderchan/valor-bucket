@@ -2,22 +2,22 @@
     "description": "A programming language that lets you work quickly and integrate systems more effectively.",
     "homepage": "https://www.python.org/",
     "license": "Python-2.0",
-    "version": "3.10.9",
+    "version": "3.10.11",
     "architecture": {
         "64bit": {
             "url": [
-                "https://www.python.org/ftp/python/3.10.9/python-3.10.9-amd64.exe#/setup.exe"
+                "https://www.python.org/ftp/python/3.10.11/python-3.10.11-amd64.exe#/setup.exe"
             ],
             "hash": [
-                "md5:dce578fe177892488cadb6c34aea58ee"
+                "md5:a55e9c1e6421c84a4bd8b4be41492f51"
             ]
         },
         "32bit": {
             "url": [
-                "https://www.python.org/ftp/python/3.10.9/python-3.10.9.exe#/setup.exe"
+                "https://www.python.org/ftp/python/3.10.11/python-3.10.11.exe#/setup.exe"
             ],
             "hash": [
-                "md5:1a9f582557f00efdde16d46dd0339f71"
+                "md5:83a67e1c4f6f1472bf75dd9681491bf1"
             ]
         }
     },
